@@ -1,0 +1,28 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+        <GridView
+        android:id="@+id/gridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="184dp"
+        android:layout_marginRight="110dp"
+        android:numColumns="3" >
+    </GridView>
+
+        <TextView
+            android:id="@+id/tobeat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="112dp"
+            android:layout_marginLeft="18dp"
+            android:text="Score to beat"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</RelativeLayout>

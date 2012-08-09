@@ -1,0 +1,16 @@
+<resources>
+
+    <string name="app_name">Cricket_ABCD</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main_menu">MainMenu</string>
+    <string name="regular">Regular Game</string>
+    <string name="supersixes">Super Sixes</string>
+    <string name="help">Help/Rules</string>
+    <string name="title_activity_help_rules">HelpRules</string>
+    <string name="title_activity_team__select">Team_Select</string>
+    <string name="title_activity_listof_teams">ListofTeams</string>
+    <string name="title_activity_batting">Batting</string>
+    <string name="title_activity_bowling">Bowling</string>
+
+</resources>

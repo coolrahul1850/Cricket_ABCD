@@ -1,0 +1,35 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/Regular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="118dp"
+        android:text="@string/regular"
+        android:onClick="teamSelect" />
+
+    <Button
+        android:id="@+id/SuperSixes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/Regular"
+        android:layout_below="@+id/Regular"
+        android:layout_marginTop="69dp"
+        android:onClick="teamSelect"
+        android:text="@string/supersixes" />
+
+    <Button
+        android:id="@+id/Help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/SuperSixes"
+        android:layout_below="@+id/SuperSixes"
+        android:layout_marginTop="107dp"
+        android:text="@string/help" />
+
+</RelativeLayout>

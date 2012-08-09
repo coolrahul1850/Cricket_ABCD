@@ -1,0 +1,4 @@
+
+    <resources>
+        <item type="string" name="help_file" format="string">Test</item>
+    </resources>

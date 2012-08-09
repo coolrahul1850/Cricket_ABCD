@@ -1,0 +1,37 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/yourTeam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="58dp"
+        android:text="Your Team" 
+        android:onClick="listTeam"/>
+
+    <Button
+        android:id="@+id/opponentTeam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="136dp"
+        android:text="Opponent"
+        android:onClick="listTeam" />
+
+    <Button
+        android:id="@+id/toss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/opponentTeam"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="51dp"
+        android:visibility="gone"
+        android:onClick="tossresult"
+        android:text="Toss" />
+
+</RelativeLayout>
