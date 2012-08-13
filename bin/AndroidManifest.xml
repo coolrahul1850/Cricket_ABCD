@@ -25,7 +25,8 @@
             android:label="@string/title_activity_help_rules" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="main_menu" />
+                android:value="main_menu" 
+            />
         </activity>
         <activity
             android:name=".Team_Select"

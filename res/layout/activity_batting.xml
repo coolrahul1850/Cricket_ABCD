@@ -1,7 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:id="@+id/batting"
+   >
 
     <GridView
         android:id="@+id/gridview"
@@ -14,63 +16,69 @@
         android:numColumns="3" >
     </GridView>
 
-    <TextView
-        android:id="@+id/textView1"
+  <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tableLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginTop="275dp"
+  >
+ 
+    <TableRow
+        android:id="@+id/tableRow1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="60dp"
-        android:layout_marginLeft="25dp"
-        android:text="Overs"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:padding="5dip" >
+ 
+        <TextView
+            android:id="@+id/textView3"
+            android:text="@string/CurrentBowl"
+            android:layout_width="150dp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <TextView
-        android:id="@+id/remainingballs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView1"
-        android:layout_alignRight="@+id/gridview"
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        <TextView
+            android:id="@+id/oppBowl"
+            android:text="" />
 
-    <TextView
-        android:id="@+id/textView2"
+    </TableRow>
+ 
+    <TableRow
+        android:id="@+id/tableRow3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/remainingballs"
-        android:layout_marginTop="16dp"
-        android:text="Score"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/score"
+        android:padding="5dip" >
+ 
+        <TextView
+            android:id="@+id/textView1"
+            android:text="@string/BallsReamining"
+            android:layout_width="150dp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+ 
+        <TextView
+            android:id="@+id/remainingballs"
+            android:text="" />
+ 
+ 
+    </TableRow>
+ 
+    <TableRow
+        android:id="@+id/tableRow4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView1"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_marginBottom="20dp"
-        android:text="Bowled"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/oppBowl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView3"
-        android:layout_alignBottom="@+id/textView3"
-        android:layout_alignLeft="@+id/score"
-        android:text=""
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:padding="5dip" >
+ 		  <TextView
+            android:id="@+id/textView2"
+            android:text="score"
+            android:layout_width="150dp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+        
+        <TextView
+            android:id="@+id/score"
+            android:text="" />
+    </TableRow>
+ 
     
+ 
+</TableLayout>
+
 </RelativeLayout>

@@ -12,5 +12,8 @@
     <string name="title_activity_listof_teams">ListofTeams</string>
     <string name="title_activity_batting">Batting</string>
     <string name="title_activity_bowling">Bowling</string>
+    <string name="CurrentBowl">Current Bowl</string>
+    <string name="BallsReamining">Balls Remaining</string>
+    <color name ="green">#49E20E</color>
 
 </resources>

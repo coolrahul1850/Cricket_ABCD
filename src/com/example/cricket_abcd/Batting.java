@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,48 +29,53 @@ public class Batting extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_batting);
+        
+      
+        
+        //Defining the table and grid here        
         GridView gridview = (GridView) findViewById(R.id.gridview);
         final TextView remainingballs = (TextView) findViewById(R.id.remainingballs);
         remainingballs.setText(String.valueOf(ballsRemaining));
     
         final TextView Score = (TextView) findViewById(R.id.score);
         Score.setText(String.valueOf(score));
- 
+      
+        
+        final TextView CurrentBowl = (TextView) findViewById(R.id.oppBowl);
         gridview.setAdapter(new ImageAdapter(this));
-        
         gridview.setOnItemClickListener(new OnItemClickListener() {
-        
+      
         	
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-               Toast.makeText(Batting.this, "" + position, Toast.LENGTH_SHORT).show();
+       //        Toast.makeText(Batting.this, "" + position, Toast.LENGTH_SHORT).show();
             
-              int currentBowl =0;
-              Random r = new Random();
-              currentBowl = r.nextInt(6);
-              int i=0;
             	
-              ballsRemaining = ballsRemaining - 1;
-              if (ballsRemaining > 0)
-              {
-            	  remainingballs.setText(String.valueOf(ballsRemaining));
-            	  i = Math.abs(currentBowl - position);
-            	 if ((currentBowl-position) == 0)
-            	  {
-                  	AlertDialog.Builder adb = new AlertDialog.Builder(Batting.this);
-      				adb.setTitle("You are OUT!!!");
-      				adb.setPositiveButton("Ok", null);
-            	  }
+            	int currentBowl =0;
+            	Random r = new Random();
+            	currentBowl = r.nextInt(6);
+            	CurrentBowl.setText(String.valueOf(currentBowl));
+            	int i=0;
+            	ballsRemaining = ballsRemaining - 1;
+            	if (ballsRemaining > 0)
+            	{
+            		remainingballs.setText(String.valueOf(ballsRemaining));
+            		i = Math.abs(currentBowl - position);
+            		if (currentBowl == position)
+            		{
+            			AlertDialog.Builder adb = new AlertDialog.Builder(Batting.this);
+            			adb.setTitle("You are OUT!!!");
+            			adb.setPositiveButton("Ok", null);
+            			adb.show();
+            		}
             		
-            	  score = score + i;
-            	  Score.setText(String.valueOf(score));
-            	 
-            	  
+            	 score = score + i;
+            	 Score.setText(String.valueOf(score));
               }
-              else 
-              {
-            	AlertDialog.Builder adb = new AlertDialog.Builder(Batting.this);
-  				adb.setTitle("Batting over");
-  				adb.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            	else 
+            	{
+            		AlertDialog.Builder adb = new AlertDialog.Builder(Batting.this);
+            		adb.setTitle("Batting over");
+            		adb.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 					
 					public void onClick(DialogInterface dialog, int which) {
 						// TODO Auto-generated method stub
@@ -79,16 +85,12 @@ public class Batting extends Activity {
 					}
 				});
   					
-  						adb.show(); 
+  				adb.show(); 
   			
               }
               
-            
-                
-            }
+          }
         });
-        
-        
         
     }
 
