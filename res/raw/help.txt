@@ -1,0 +1,12 @@
+Welcome to Cricket ABCD.
+
+General Instruction
+You will start with batting. You can bat 1,3 or 5 overs. You choose a stroke from A to G, A being 1 and G being 6.
+
+Example how it works
+You bat A, bowler bows G, Score = 6
+You bat G, bowler bows A, Score = 6
+You bat B, bowler bows A or C, score = 1
+You bat C, bowler bows C , you are out
+
+There are two modes in this game, regular and hong kong sixes. Hong kong sixes you can bowl and bat only A or G. 

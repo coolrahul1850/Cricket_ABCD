@@ -14,6 +14,9 @@
     <string name="title_activity_bowling">Bowling</string>
     <string name="CurrentBowl">Current Bowl</string>
     <string name="BallsReamining">Balls Remaining</string>
-    <color name ="green">#49E20E</color>
+
+    <color name="green">#49E20E</color>
+
+    <string name="title_activity_hong_kong">HongKong</string>
 
 </resources>

@@ -4,7 +4,6 @@ package com.example.cricket_abcd;
 
 
 
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -15,6 +14,8 @@ import android.widget.GridView;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class MainMenu extends Activity {
+
+public static int hongKong = 0;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,14 @@ public class MainMenu extends Activity {
 				// TODO Auto-generated method stub
 				if (position ==0)
 					MainMenu.this.startActivity(new Intent(MainMenu.this,Team_Select.class));
+				else if (position==1)
+				{
+					hongKong = 1;
+					Intent intent = new Intent(MainMenu.this, Team_Select.class);
+					intent.putExtra("hongKong", hongKong );
+					MainMenu.this.startActivity(intent);
+				}
+					
 				else if (position == 2)
 					MainMenu.this.startActivity(new Intent(MainMenu.this, HelpRules.class));
 			}

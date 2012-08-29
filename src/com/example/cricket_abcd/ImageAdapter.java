@@ -23,7 +23,7 @@ public class ImageAdapter extends BaseAdapter {
         {
         	Switch = "Batting";
         }
-        Log.d(c.toString(),"The class that was entereed");
+        
     }
 
    
@@ -31,8 +31,10 @@ public class ImageAdapter extends BaseAdapter {
 		
 		if (Switch =="Main")
 			return mThumbIds1.length;
-		else if (Switch =="Batting")
+		else if (Switch =="Batting" && MainMenu.hongKong ==0)
 			return mThumbIds.length;
+		else if (Switch =="Batting" && MainMenu.hongKong ==1)
+			return mThumbIds2.length;
 		else
 			return mThumbIds.length;
 		
@@ -65,7 +67,10 @@ public class ImageAdapter extends BaseAdapter {
         }
         else if (Switch.contains("Batting"))
         {
+        	if (MainMenu.hongKong == 0)
         	imageView.setImageResource(mThumbIds[position]);
+        	else if (MainMenu.hongKong == 1)
+        	imageView.setImageResource(mThumbIds2[position]);
         }
                 
         return imageView;
@@ -75,11 +80,15 @@ public class ImageAdapter extends BaseAdapter {
     
   // references to our images
     private Integer[] mThumbIds = {
-            R.drawable.sample_2,R.drawable.sample_2
+           R.drawable.a,R.drawable.b,R.drawable.c,R.drawable.d,R.drawable.e,R.drawable.f,R.drawable.g
     };
 
     private Integer[] mThumbIds1 = {
             R.drawable.menu1,R.drawable.menu2,R.drawable.menu3
+    };
+    
+    private Integer[] mThumbIds2 = {
+    		R.drawable.a, R.drawable.g
     };
 	
 }

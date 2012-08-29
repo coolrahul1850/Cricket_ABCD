@@ -21,16 +21,21 @@ import android.support.v4.app.NavUtils;
 
 public class Batting extends Activity {
 
-	static public int ballsRemaining = 6;
+	static public int ballsRemaining = 0;
 	static public int score = 0;
+	static public int numOvers = 0;
+	static public int wickets = 0;
 	
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_batting);
+        Intent i = getIntent();
+        ballsRemaining  = i.getIntExtra("selectedOvers", 0);
+        numOvers = ballsRemaining;
         
-      
+        wickets = i.getIntExtra("wickets", 0);
         
         //Defining the table and grid here        
         GridView gridview = (GridView) findViewById(R.id.gridview);
@@ -40,6 +45,8 @@ public class Batting extends Activity {
         final TextView Score = (TextView) findViewById(R.id.score);
         Score.setText(String.valueOf(score));
       
+        final TextView Wickets = (TextView) findViewById(R.id.wickets);
+        Wickets.setText(String.valueOf(wickets));
         
         final TextView CurrentBowl = (TextView) findViewById(R.id.oppBowl);
         gridview.setAdapter(new ImageAdapter(this));
@@ -49,46 +56,136 @@ public class Batting extends Activity {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
        //        Toast.makeText(Batting.this, "" + position, Toast.LENGTH_SHORT).show();
             
-            	
-            	int currentBowl =0;
-            	Random r = new Random();
-            	currentBowl = r.nextInt(6);
-            	CurrentBowl.setText(String.valueOf(currentBowl));
-            	int i=0;
-            	ballsRemaining = ballsRemaining - 1;
-            	if (ballsRemaining > 0)
+            	if (MainMenu.hongKong == 1)
             	{
-            		remainingballs.setText(String.valueOf(ballsRemaining));
-            		i = Math.abs(currentBowl - position);
-            		if (currentBowl == position)
-            		{
-            			AlertDialog.Builder adb = new AlertDialog.Builder(Batting.this);
-            			adb.setTitle("You are OUT!!!");
-            			adb.setPositiveButton("Ok", null);
-            			adb.show();
-            		}
-            		
-            	 score = score + i;
-            	 Score.setText(String.valueOf(score));
-              }
-            	else 
+                	int currentBowl =0;
+                	Random r = new Random();
+                	currentBowl = r.nextInt(2);
+                	CurrentBowl.setText(String.valueOf(currentBowl));
+                	int i=0;
+                	ballsRemaining = ballsRemaining - 1;
+                	if (ballsRemaining > 0)
+                	{
+                		remainingballs.setText(String.valueOf(ballsRemaining));
+                		i = Math.abs(currentBowl - position);
+                		if (currentBowl == position)
+                		{
+                			wickets = wickets - 1;
+                			Wickets.setText(String.valueOf(wickets));
+                			if (wickets ==0)
+                			{
+                				AlertDialog.Builder adb = new AlertDialog.Builder(Batting.this);
+                        		adb.setTitle("Batting over");
+                        		adb.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            					
+            					public void onClick(DialogInterface dialog, int which) {
+            						// TODO Auto-generated method stub
+            						Intent intent = new Intent (Batting.this, Bowling.class);
+            						intent.putExtra("scoreToBeat", score);
+            						intent.putExtra("numOvers", numOvers);
+            					   	startActivity(intent);
+            					}
+            				});
+              					
+              				adb.show(); 
+                			}
+                			AlertDialog.Builder adb = new AlertDialog.Builder(Batting.this);
+                			adb.setTitle("You are OUT!!!");
+                			adb.setPositiveButton("Ok", null);
+                			adb.show();
+                		}
+                		
+                		if (i==1)
+                			i=6;
+                		
+                	 score = score + i;
+                	 Score.setText(String.valueOf(score));
+                  }
+                	else 
+                	{
+                		AlertDialog.Builder adb = new AlertDialog.Builder(Batting.this);
+                		adb.setTitle("Batting over");
+                		adb.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+    					
+    					public void onClick(DialogInterface dialog, int which) {
+    						// TODO Auto-generated method stub
+    						Intent intent = new Intent (Batting.this, Bowling.class);
+    						intent.putExtra("scoreToBeat", score);
+    						intent.putExtra("numOvers", numOvers);
+    					   	startActivity(intent);
+    					}
+    				});
+      					
+      				adb.show(); 
+      			
+                  }
+                  
+            	}
+            	else if (MainMenu.hongKong == 0)
             	{
-            		AlertDialog.Builder adb = new AlertDialog.Builder(Batting.this);
-            		adb.setTitle("Batting over");
-            		adb.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-					
-					public void onClick(DialogInterface dialog, int which) {
-						// TODO Auto-generated method stub
-						Intent intent = new Intent (Batting.this, Bowling.class);
-						intent.putExtra("scoreToBeat", score);
-  				    	startActivity(intent);
-					}
-				});
-  					
-  				adb.show(); 
-  			
-              }
-              
+                	int currentBowl =0;
+                	Random r = new Random();
+                	currentBowl = r.nextInt(6);
+                	CurrentBowl.setText(String.valueOf(currentBowl));
+                	int i=0;
+                	ballsRemaining = ballsRemaining - 1;
+                	if (ballsRemaining > 0)
+                	{
+                		remainingballs.setText(String.valueOf(ballsRemaining));
+                		i = Math.abs(currentBowl - position);
+                		if (currentBowl == position)
+                		{
+                			wickets = wickets - 1;
+                			Wickets.setText(String.valueOf(wickets));
+                			if (wickets ==0)
+                			{
+                				AlertDialog.Builder adb = new AlertDialog.Builder(Batting.this);
+                        		adb.setTitle("Batting over");
+                        		adb.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            					
+            					public void onClick(DialogInterface dialog, int which) {
+            						// TODO Auto-generated method stub
+            						Intent intent = new Intent (Batting.this, Bowling.class);
+            						intent.putExtra("scoreToBeat", score);
+            						intent.putExtra("numOvers", numOvers);
+            					   	startActivity(intent);
+            					}
+            				});
+              					
+              				adb.show(); 
+                			}
+                			
+                			
+                			AlertDialog.Builder adb = new AlertDialog.Builder(Batting.this);
+                			adb.setTitle("You are OUT!!!");
+                			adb.setPositiveButton("Ok", null);
+                			adb.show();
+                		}
+                		
+                	 score = score + i;
+                	 Score.setText(String.valueOf(score));
+                  }
+                	else 
+                	{
+                		AlertDialog.Builder adb = new AlertDialog.Builder(Batting.this);
+                		adb.setTitle("Batting over");
+                		adb.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+    					
+    					public void onClick(DialogInterface dialog, int which) {
+    						// TODO Auto-generated method stub
+    						Intent intent = new Intent (Batting.this, Bowling.class);
+    						intent.putExtra("scoreToBeat", score);
+    						intent.putExtra("numOvers", numOvers);
+    					   	startActivity(intent);
+    					}
+    				});
+      					
+      				adb.show(); 
+      			
+                  }
+                  
+            	}
+
           }
         });
         

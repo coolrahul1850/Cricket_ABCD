@@ -77,7 +77,23 @@
             android:text="" />
     </TableRow>
  
-    
+    <TableRow
+        android:id="@+id/tableRow5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dip" >
+ 		  <TextView
+            android:id="@+id/textView2"
+            android:text="Wickets"
+            android:layout_width="150dp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+        
+        <TextView
+            android:id="@+id/wickets"
+            android:text="" />
+    </TableRow>
+     
  
 </TableLayout>
         
