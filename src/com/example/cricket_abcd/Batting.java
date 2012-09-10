@@ -58,10 +58,12 @@ public class Batting extends Activity {
             
             	if (MainMenu.hongKong == 1)
             	{
-                	int currentBowl =0;
+                	String Currentbowl;
+            		int currentBowl =0;
                 	Random r = new Random();
                 	currentBowl = r.nextInt(2);
-                	CurrentBowl.setText(String.valueOf(currentBowl));
+                	Currentbowl = getBowl(currentBowl);
+                	CurrentBowl.setText(Currentbowl);
                 	int i=0;
                 	ballsRemaining = ballsRemaining - 1;
                 	if (ballsRemaining > 0)
@@ -124,9 +126,11 @@ public class Batting extends Activity {
             	else if (MainMenu.hongKong == 0)
             	{
                 	int currentBowl =0;
+                	String Currentbowl =null;
                 	Random r = new Random();
-                	currentBowl = r.nextInt(6);
-                	CurrentBowl.setText(String.valueOf(currentBowl));
+                	currentBowl = r.nextInt(7);
+                	Currentbowl = getBowl(currentBowl);
+                	CurrentBowl.setText(Currentbowl);
                 	int i=0;
                 	ballsRemaining = ballsRemaining - 1;
                 	if (ballsRemaining > 0)
@@ -187,6 +191,36 @@ public class Batting extends Activity {
             	}
 
           }
+
+			private String getBowl(int currentBowl) {
+				// TODO Auto-generated method stub
+				String bowl = null;
+				switch (currentBowl)
+				{
+				case 0:
+					bowl = "A";
+					break;
+				case 1:
+					bowl = "B";
+					break;
+				case 2:
+					bowl = "C";
+					break;
+				case 3:
+					bowl = "D";
+					break;
+				case 4:
+					bowl = "E";
+					break;
+				case 5:
+					bowl = "F";
+					break;
+				case 6:
+					bowl = "G";
+					break;
+				}
+				return bowl;
+			}
         });
         
     }

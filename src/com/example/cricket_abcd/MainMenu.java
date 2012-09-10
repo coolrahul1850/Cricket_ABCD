@@ -17,6 +17,7 @@ public class MainMenu extends Activity {
 
 public static int hongKong = 0;
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

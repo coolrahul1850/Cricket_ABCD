@@ -61,9 +61,11 @@ public class Bowling extends Activity {
             	if (MainMenu.hongKong == 1)
             	{
                  	int currentBowl =0;
+                 	String Currentbowl = null;
                 	Random r = new Random();
                 	currentBowl = r.nextInt(2);
-                	CurrentBowl.setText(String.valueOf(currentBowl));
+                	Currentbowl = getBowl(currentBowl);
+                	CurrentBowl.setText(Currentbowl);
                 	int i=0;
                 	ballsRemaining = ballsRemaining - 1;
                 	if (ballsRemaining > 0)
@@ -76,11 +78,8 @@ public class Bowling extends Activity {
                 		{
                 			wickets = wickets - 1;
                 			if (wickets == 0)
-                			{
-                				AlertDialog.Builder adb = new AlertDialog.Builder(Bowling.this);
-                         		adb.setTitle("Nice job! Bowled out opposition. YOU WIN!!!");
-                         		adb.show();
-                			}
+                				AlertMessage(0);
+       
                 			AlertDialog.Builder adb = new AlertDialog.Builder(Bowling.this);
                 			Wickets.setText(String.valueOf(wickets));
                 			adb.setTitle("Good Ball, you got one wicket");
@@ -90,39 +89,22 @@ public class Bowling extends Activity {
                 		
                 	 score = score - i;
                 	 if (score <= 0)
-                	 {
-                		 //add win method
-                		AlertDialog.Builder adb = new AlertDialog.Builder(Bowling.this);
-                 		adb.setTitle("You Lost");
-                 		adb.show();
-                	 }
+                		 AlertMessage(1);
                 	 Score.setText(String.valueOf(score));
                   }
                 	else 
-                	{
-                		AlertDialog.Builder adb = new AlertDialog.Builder(Bowling.this);
-                		adb.setTitle("You win");
-                		adb.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-    					
-    					public void onClick(DialogInterface dialog, int which) {
-    						// TODO Auto-generated method stub
-    		//				Intent intent = new Intent (Batting.this, Bowling.class);
-    		//				intent.putExtra("scoreToBeat", score);
-      		//		    	startActivity(intent);
-    					}
-    				});
-      					
-      				adb.show(); 
-      			
-                  }
+                		AlertMessage(0); 
+                   
             	}
        
               	if (MainMenu.hongKong == 0)
             	{
-                 	int currentBowl =0;
+                 	String Currentbowl = null;
+              		int currentBowl =0;
                 	Random r = new Random();
-                	currentBowl = r.nextInt(6);
-                	CurrentBowl.setText(String.valueOf(currentBowl));
+                	currentBowl = r.nextInt(7);
+                	Currentbowl = getBowl(currentBowl);
+                	CurrentBowl.setText(Currentbowl);
                 	int i=0;
                 	ballsRemaining = ballsRemaining - 1;
                 	if (ballsRemaining > 0)
@@ -133,11 +115,7 @@ public class Bowling extends Activity {
                 		{
                 			wickets = wickets - 1;
                 			if (wickets == 0)
-                			{
-                				AlertDialog.Builder adb = new AlertDialog.Builder(Bowling.this);
-                         		adb.setTitle("Nice job! Bowled out opposition. YOU WIN!!!");
-                         		adb.show();
-                			}
+                				AlertMessage(0);
                 			AlertDialog.Builder adb = new AlertDialog.Builder(Bowling.this);
                 			Wickets.setText(String.valueOf(wickets));
                 			adb.setTitle("Good Ball, you got one wicket");
@@ -147,33 +125,79 @@ public class Bowling extends Activity {
                 		
                 	 score = score - i;
                 	 if (score <= 0)
-                	 {
-                		 //add win method
-                		AlertDialog.Builder adb = new AlertDialog.Builder(Bowling.this);
-                 		adb.setTitle("You Lost");
-                 		adb.show();
-                	 }
+                	  AlertMessage(1);
                 	 Score.setText(String.valueOf(score));
                   }
                 	else 
-                	{
-                		AlertDialog.Builder adb = new AlertDialog.Builder(Bowling.this);
-                		adb.setTitle("You win");
-                		adb.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                		AlertMessage(0);
+            	}
+          }
+
+			
+            private String getBowl(int currentBowl) {
+				// TODO Auto-generated method stub
+            	String bowl = null;
+				switch (currentBowl)
+				{
+				case 0:
+					bowl = "A";
+					break;
+				case 1:
+					bowl = "B";
+					break;
+				case 2:
+					bowl = "C";
+					break;
+				case 3:
+					bowl = "D";
+					break;
+				case 4:
+					bowl = "E";
+					break;
+				case 5:
+					bowl = "F";
+					break;
+				case 6:
+					bowl = "G";
+					break;
+				}
+				return bowl;
+			}
+
+
+			private void AlertMessage(int i) {
+				// TODO Auto-generated method stub
+				AlertDialog.Builder adb = new AlertDialog.Builder(Bowling.this);
+				switch (i)
+				{
+				case 0:
+					
+				    adb.setTitle("YOU WIN!!!");
+			/*	    adb.setPositiveButton("Play Again", new DialogInterface.OnClickListener() {
     					
     					public void onClick(DialogInterface dialog, int which) {
     						// TODO Auto-generated method stub
-    		//				Intent intent = new Intent (Batting.this, Bowling.class);
-    		//				intent.putExtra("scoreToBeat", score);
-      		//		    	startActivity(intent);
+    						Intent intent = new Intent (Bowling.this, MainMenu.class);
+    						startActivity(intent);
     					}
-    				});
-      					
-      				adb.show(); 
-      			
-                  }
-            	}
-          }
+    				});/*/
+				    adb.show();
+				    break;
+				case 1 :
+					adb.setTitle("You Lost");
+            /* 		 adb.setPositiveButton("Play Again", new DialogInterface.OnClickListener() {
+     					
+     					public void onClick(DialogInterface dialog, int which) {
+     						// TODO Auto-generated method stub
+     						Intent intent = new Intent (Bowling.this, MainMenu.class);
+     						startActivity(intent);
+     					}
+     				});*/
+             		adb.show();
+             		break;
+				}
+					
+			}
         });
         
         

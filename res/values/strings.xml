@@ -14,6 +14,7 @@
     <string name="title_activity_bowling">Bowling</string>
     <string name="CurrentBowl">Current Bowl</string>
     <string name="BallsReamining">Balls Remaining</string>
+    <string name="oppteam">Opponent Team</string>
 
     <color name="green">#49E20E</color>
 

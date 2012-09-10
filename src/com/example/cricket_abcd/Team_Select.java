@@ -41,6 +41,8 @@ public class Team_Select extends Activity {
     	  if (whichPlayer == 1)
     	  {
     		  TextView yourTeam= (TextView) findViewById(R.id.yourTeam) ;
+   // 		  MainMenu.myTeam = i.getStringExtra("yourteam");
+   // 		  yourTeam.setText(MainMenu.myTeam);
     		  yourTeam.setText(i.getStringExtra("yourteam"));
     	  }
     	
@@ -59,7 +61,7 @@ public class Team_Select extends Activity {
           {
           	View toss = findViewById (R.id.toss);
           	toss.setVisibility(View.VISIBLE);
-          	 //Checking whether the hongkong was selected or not
+          	
      	           	
           }
 	}
